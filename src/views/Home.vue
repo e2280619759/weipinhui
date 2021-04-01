@@ -42,17 +42,41 @@
   text-align: center;
 }
 /* 主题内容 */
-.inner-content {
+.inner-content,.inner-content-1{
   width: 1170px;
   height: auto;
   margin: 0 auto;
 }
-.inner-img>a:nth-child(2)>img{
+.inner-img {
+  width: auto;
+  height: auto;
+}
+.inner-img > a:nth-child(2) > img {
   margin-left: 15px;
   margin-right: 15px;
 }
-.inner-img > a {
+.temai {
+  background: url(../assets/img/15344789862278.jpg);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+.discount-1 img,
+.discount-2 img {
+  display:block;
+  overflow: hidden;
+  position: relative;
+  width: 600px;
+  height: 342px;
+  
   float: left;
+  z-index: 1;
+}
+.discount-2 img {
+  width: 570px;
 }
 </style>
 <template>
@@ -88,6 +112,20 @@
         <a href="#"
           ><img src="../assets/img/1617005845099_642x426_90.jpg" alt=""
         /></a>
+      </div>
+    </div>
+    <div class="inner-content-1">
+      <div class="temai">
+        </div>
+        <div class="discount-1">
+          <a href="#"
+            ><img src="../assets/img/1607914975921_1020x582_90.jpg" alt=""
+          /></a>
+        </div>
+        <div class="discount-2">
+          <a href="#"
+            ><img src="../assets/img/1599118052991_1140x684_90.jpg" alt=""
+          /></a>
       </div>
     </div>
   </div>
