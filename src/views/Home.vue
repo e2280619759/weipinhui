@@ -42,7 +42,8 @@
   text-align: center;
 }
 /* 主题内容 */
-.inner-content,.inner-content-1{
+.inner-content,
+.inner-content-1 {
   width: 1170px;
   height: auto;
   margin: 0 auto;
@@ -66,17 +67,91 @@
 }
 .discount-1 img,
 .discount-2 img {
-  display:block;
+  display: block;
   overflow: hidden;
   position: relative;
   width: 600px;
   height: 342px;
-  
+
   float: left;
   z-index: 1;
 }
 .discount-2 img {
   width: 570px;
+}
+/* 右侧购物袋 */
+.s1 > span > span {
+  color: #fff;
+  margin: 0 2px;
+}
+.butr:hover {
+  background: #df147f;
+}
+.zhanghao {
+  padding: 5px 0;
+}
+.s1 img {
+  width: 23px;
+  margin: 0 6px;
+  color: #e6e6e6;
+}
+.Right-inner {
+  margin-top: -250px;
+  top: 50%;
+  position: relative;
+  height: auto;
+}
+.Right-bg {
+  width: 36px;
+  height: 100%;
+  background: #262626;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 100;
+}
+.butr>span{
+  padding: 10px 0;
+}
+.butr{
+  margin: 10px 0;
+}
+.s2{
+  color: #fff;
+  width: 20px;
+  margin: 15px 25%;
+  clear: both;
+  border-radius: 0.25rem;
+  display: block;
+
+}
+.s2 >img{
+  width: 20px;
+  height: 25px;
+}
+.s2  div{
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  margin: 10px 0;
+  text-align: center;
+  border-radius: 50%;
+  color: #262626;
+}
+.gwd-bg{
+  background: #df147f;
+  padding: 1px 0;
+}
+.button-right span{
+  display: block;
+}
+.s3 img{
+   color: #fff;
+  width: 20px;
+  margin: 15px 25%;
+  display: block;
+  position: relative;
+  top: 100px;
 }
 </style>
 <template>
@@ -115,17 +190,65 @@
       </div>
     </div>
     <div class="inner-content-1">
-      <div class="temai">
+      <div class="temai"></div>
+      <div class="discount-1">
+        <a href="#"
+          ><img src="../assets/img/1607914975921_1020x582_90.jpg" alt=""
+        /></a>
+      </div>
+      <div class="discount-2">
+        <a href="#"
+          ><img src="../assets/img/1599118052991_1140x684_90.jpg" alt=""
+        /></a>
+      </div>
+    </div>
+    <div>
+      <div class="Right-bg">
+        <div class="Right-inner">
+          <div class="zhanghao s1 butr">
+            <span>
+              <img src="../assets/Vector-img/yonghu.png" alt="" />
+              <span>账号</span>
+            </span>
+          </div>
+          <div class=" butr gwd-bg">
+            <span class="s2">
+              <img src="../assets/Vector-img/gouwudai.png" alt="" />
+              <span>购物袋</span>
+              <div><span>0</span></div>
+            </span>
+          </div>
+          <div class="butr">
+            <span class="s2 ">
+              <img src="../assets/Vector-img/youhuiquan.png" alt="">
+            </span>
+          </div>
+          <div class="butr">
+            <span class="s2 ">
+              <img src="../assets/Vector-img/shoucang.png" alt="">
+            </span>
+          </div>
+          <div class="butr">
+            <span class="s2 ">
+              <img src="../assets/Vector-img/shouchang-1.png" alt="">
+            </span>
+          </div>
+          <div class="butr">
+            <span class="s2 ">
+              <img src="../assets/Vector-img/lishi.png" alt="">
+            </span>
+          </div>
+          <div class="button-right s3">
+            <span>
+              <img src="../assets/Vector-img/fankui.png" alt="">
+            </span>
+          </div>
+          <div class="button-right s3">
+            <a href="top">
+              <img src="../assets/Vector-img/fanhuidingbu.png" alt="">
+            </a>
+          </div>
         </div>
-        <div class="discount-1">
-          <a href="#"
-            ><img src="../assets/img/1607914975921_1020x582_90.jpg" alt=""
-          /></a>
-        </div>
-        <div class="discount-2">
-          <a href="#"
-            ><img src="../assets/img/1599118052991_1140x684_90.jpg" alt=""
-          /></a>
       </div>
     </div>
   </div>
@@ -136,7 +259,7 @@
 //js
 export default {
   data() {
-    return {
+    return { 
       sty: [
         "小熊 全场低至1.2折",
         "国潮大牌 安踏低至1.5折",

@@ -59,8 +59,8 @@
 }
 
 .top-right-header i {
-  margin-left: 10px;
-  margin-right: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .libao {

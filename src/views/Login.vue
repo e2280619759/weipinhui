@@ -1,64 +1,32 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <div class="top">
-        <a class="img-1"> </a>
-        <a class="img-2"> </a>
-      </div>
-    </div>
-    <div class="login">
-      <div class="inner">
-        <div class="c-top">
-          <div class="top-login">
-            <div>扫码登录</div>
-            <i>|</i>
-            <div>账户登录</div>
-          </div>
-          <div class="input">
-            <input
-              :class="{ a }"
-              type="text"
-              @blur="valiPhone"
-              placeholder="手机号/用户名/邮箱"
-            />
-            <span>{{ msgPhone }}</span>
-            <span class="dl-img-1"></span>
-            <input
-              type="password"
-              :class="{ b }"
-              @blur="valiPwd"
-              placeholder="密码"
-            />
-            <span>{{ msgPwd }}</span>
-            <span class="dl-img-2"></span>
+    <div class="input" title="登录">
+      <input
+        :class="a"
+        v-model="phone"
+        type="text"
+        @blur="valiPhone"
+        placeholder="手机号/用户名/邮箱"
+      />
+      <span class="dl-img-1"></span>
 
-            <div class="denglu">
-              <a>短信验证登录</a>
-              <a>忘记密码</a>
-            </div>
-            <div class="button">
-              <button><span>登录</span></button>
-            </div>
-          </div>
-          <div class="weixin">
-            <div class="row-line"></div>
-            <div class="weixin-img"><a href="#"></a></div>
-            <div class="dlfs">
-              <a href="#">新浪微博</a>
-              <span>|</span>
-              <a href="#">QQ</a>
-              <span>|</span>
-              <a href="#">支付宝</a>
-              <span>
-                <a href="#">更多<i>></i></a>
-              </span>
-              <a href="#">免费注册</a>
-            </div>
-          </div>
-        </div>
+      <span :class="b"></span>
+      <span class="Prompt">{{ msgPhone }}</span>
+      <input
+        :class="c"
+        type="password"
+        v-model="pwd"
+        @blur="valiPwd"
+        placeholder="密码"
+      />
+      <span class="dl-img-2"></span>
+      <span :class="d"></span>
+      <span class="Prompt">{{ msgPwd }}</span>
+
+      <div class="denglu">
+        <a>短信验证登录</a>
+        <a>忘记密码</a>
       </div>
     </div>
-  </div>
 </template>
 <script>
 export default {
@@ -66,21 +34,41 @@ export default {
     return {
       phone: "",
       msgPhone: "",
-      a: { cuowu1: false, cuowu: false },
+      a: { cuowu1: false },
+      b: { cuowu: false },
+      c: { cuowu1: false },
+      d: { cuowu: false },
       pwd: "",
       msgPwd: "",
-      b: { cuowu1: false, cuowu: false },
     };
   },
   methods: {
-    
+    valiPwd() {
+      var result = this.pwd;
+      if (result == "") {
+        this.c.cuowu1 = true;
+        this.d.cuowu = true;
+        this.msgPwd = "密码不能为空";
+      }
+    },
+    valiPhone() {
+      var result = this.pwd;
+      if (result == "") {
+        this.a.cuowu1 = true;
+        this.b.cuowu = true;
+        this.msgPhone = "用户名不能为空";
+      }
+    },
   },
-  watch:{
-    
-  },
+  watch: {},
 };
 </script>
 <style scoped>
+.Prompt {
+  color: red;
+  font-size: 0.13rem;
+  display: inline-block;
+}
 .cuowu1 {
   border: solid 2px red;
 }
@@ -89,88 +77,16 @@ export default {
   width: 16px;
   height: 16px;
   display: block;
-  float: right;
-  position: relative;
-  z-index: 20;
-  margin-top: -35px;
-  margin-right: 10px;
-}
-.dlfs > span {
-  color: #e0e0e0;
-  height: 10px;
-}
-.dlfs > span > a {
-  padding-right: 0;
-  color: #666;
-}
-.dlfs {
-  margin: 0 auto;
-}
-.dlfs i {
-  transform: rotate(90deg);
-  font-style: normal;
-  display: inline-block;
-  margin-left: 8px;
-}
-.dlfs a {
-  font-size: 12px;
-  color: #333;
-  padding: 0 11px 0 10px;
-}
-.weixin > div:nth-child(2) {
-  margin: 0 auto;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  margin-top: -20px;
-  background: white;
-}
-.weixin-img > a {
-  background: url(../assets/img/sprites-hash-c9975078.png);
-  background-position: -580px -161px;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
   position: absolute;
+  margin: -36px 275px;
+  z-index: 20;
+  background-repeat: no-repeat;
 }
+
 /* 分界线 */
-.row-line {
-  height: 1px;
-  background-color: #e4e4e4;
-  overflow: hidden;
-  z-index: 0;
-  position: relative;
-}
-.weixin {
-  width: 300px;
-  margin: 0 auto;
-  padding: 30px 0;
-}
-.button > button > span {
-  font-size: 18px;
-  color: white;
-}
-.button > button:hover {
-  background-color: #f43499;
-  border-color: #f43499;
-  cursor: pointer;
-}
-.button > button {
-  width: 298px;
-  height: 44px;
-  background-color: #f10180;
-  border: 1px solid #f10180;
-  border-radius: 0.25rem;
-  border: 0;
-  outline: none;
-  margin: 20px 0 30px;
-}
+
 .denglu {
   margin-top: 15px;
-}
-a:hover {
-  color: #f10180 !important;
-  cursor: pointer;
 }
 .denglu > a:nth-child(2) {
   font-size: 10px;
@@ -182,8 +98,8 @@ a:hover {
   font-size: 14px;
   color: #333;
 }
-.input > input:nth-child(3) {
-  margin-top: 30px;
+.input > input:nth-child(1) {
+  margin-top: 50px;
 }
 /* 登录框 */
 .input-1 {
@@ -197,8 +113,8 @@ a:hover {
   width: 20px;
   height: 20px;
   display: block;
-  position: absolute;
-  margin-top: -38px;
+  position: fixed;
+  margin-top: -40px;
   margin-left: 10px;
 }
 .dl-img-2 {
@@ -206,77 +122,14 @@ a:hover {
 }
 .input {
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .input > input {
   width: 260px;
   height: 50px;
   line-height: 45px;
-  margin-top: 40px;
+  margin-top: 20px;
   outline: none;
   padding-left: 40px;
-}
-.login {
-  width: 100%;
-  height: 650px;
-  background: url(../assets/img/1615808154926.jpg);
-  background-position: top center;
-  background-repeat: no-repeat;
-}
-.container {
-  text-decoration: none;
-  color: #777;
-}
-.content,
-.inner {
-  width: 1000px;
-  height: auto;
-  margin: 0 auto;
-}
-.img-1 {
-  background: url(../assets/img/sprites-hash-c9975078.png);
-  background-position: -308px -57px;
-  width: 125px;
-  height: 100px;
-  display: block;
-  float: left;
-}
-.img-2 {
-  background: url(../assets/img/sprites-hash-c9975078.png);
-  background-position: 0px 0px;
-  display: block;
-  width: 304px;
-  height: 100px;
-  float: right;
-}
-.top {
-  height: 100px;
-}
-.inner > img {
-  width: 1857px;
-  height: 650px;
-  z-index: -2;
-}
-.c-top {
-  width: 360px;
-  background-color: white;
-  float: right;
-  margin-top: 40px;
-}
-.top-login {
-  border-bottom: 1px solid #e0e0e0;
-  height: auto;
-}
-.top-login > div {
-  display: inline-block;
-  padding: 10px 55px;
-}
-.top-login > i {
-  text-align: center;
-  font-style: normal;
-}
-a {
-  text-decoration: none;
 }
 </style>

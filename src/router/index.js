@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
+// 登录
+// 头
+import  Header from '../components/Header.vue'
+Vue.component("Header",Header)
+// 登录外壳
+import SMS from '../components/SMS.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/login',
-    name: 'Login',
-    component: Login
+    path: '/sms',
+    name: 'SMS',
+    component: SMS
   },
   {
     path: '/',
