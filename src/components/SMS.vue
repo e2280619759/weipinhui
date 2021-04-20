@@ -17,7 +17,7 @@
           <div class="input">
             <login></login>
             <div class="button">
-              <button><span>登录</span></button>
+              <button ><span>登录</span></button>
             </div>
           </div>
           <div class="weixin">
@@ -32,7 +32,7 @@
               <span>
                 <a href="#">更多<i>></i></a>
               </span>
-              <a href="#">免费注册</a>
+              <a href="javascript:;"><router-link to="registered">免费注册</router-link></a>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default {
 .dlfs a {
   font-size: 12px;
   color: #333;
-  padding: 0 11px 0 10px;
+  padding: 0 6px 0 10px;
 }
 .weixin > div:nth-child(2) {
   margin: 0 auto;

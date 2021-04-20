@@ -39,8 +39,7 @@
 
 .diqu i:hover,
 .diqu > span:hover,
-.x
- {
+.x {
   cursor: pointer;
 }
 
@@ -148,7 +147,6 @@
   right: 0;
   padding-top: 6px;
   width: 53px;
-  height: 30px;
   text-align: center;
   background-color: #fa2a83;
   position: absolute;
@@ -288,6 +286,18 @@
   overflow: hidden;
   display: none;
 }
+/* 高度坍塌 */
+
+.yeluosen {
+  zoom: 1;
+}
+.yeluosen:after {
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
 </style>
 <template>
   <div class="conteiner">
@@ -298,7 +308,7 @@
             <div class="diqu">
               <span @click="xian"> 西安市<i class="no"></i></span>
 
-              <div class="down-1" v-show="down" >
+              <div class="down-1" v-show="down">
                 <div>
                   <span>请你选择你所在的收货地区</span>
                   <span class="x" @click="xian()">x</span>
@@ -376,15 +386,19 @@
                 <i class="slash">/</i>
               </div>
               <div>
-                <a href="#">
+                <router-link v-if="this.$store.state.islogin == 0" to="login">
                   <span>请登录</span>
                   <i class="slash">/</i>
-                </a>
+                </router-link>
+                <div v-else>
+                  <span>  欢迎:{{ this.$store.state.user }}</span>
+                  <i class="slash">/</i>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="middle-header">
+        <div class="middle-header yeluosen">
           <div>
             <a href="#"
               ><img src="../assets/img/1592278113502.png" height="100"
@@ -492,6 +506,6 @@ export default {
         this.down = false;
       }
     },
-    },
+  },
 };
 </script>
